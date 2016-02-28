@@ -1,6 +1,18 @@
 Rails.application.routes.draw do
+  namespace :account do
+    resources :groups
+    resources :posts
+  end
+
+  devise_for :users
   root 'groups#index' #這行代表把 localhost:3000/groups 設成首頁
-  resources :groups
+  resources :groups do
+    member do
+      post :join
+      post :quit
+    end
+    resources :posts
+  end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

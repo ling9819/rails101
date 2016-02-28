@@ -15,3 +15,6 @@
 /log/*
 !/log/.keep
 /tmp
+
+#這個設定會將 config/database.yml 從版本控制中移除
+/config/database.yml
